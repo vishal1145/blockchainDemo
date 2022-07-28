@@ -11,20 +11,15 @@ provider = new HDWalletProvider(
     infuraURL
 )
 
-const web3 = new Web3(provider);//provider   'HTTP://127.0.0.1:7545'
+const web3 = new Web3('HTTP://127.0.0.1:7545');//provider   'HTTP://127.0.0.1:7545'
 
-// const result = async() => {
-//     return new Promise((resolve, reject) => {
-
-//     })
-// }
-// accountsTemp
+console.log("abi==>", abi);
 var result = '';
 const networkAddress = async () => {
     let accountsTemp = await web3.eth.getAccounts();
     result = await new web3.eth.Contract(abi)
         .deploy({ data: evm.bytecode.object })
-        .send({ gas: '100000000', from: accountsTemp[0] });
+        .send({ gas: '1000000', from: accountsTemp[0] });
     console.log('result._address==>', result._address);
     // provider.engine.stop();
     return result._address;
