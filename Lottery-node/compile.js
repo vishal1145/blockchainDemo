@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const solc = require('solc');
-const filePath = path.join(__dirname, 'contracts', 'Demo.sol');
+const filePath = path.join(__dirname, 'contracts', 'Lottery.sol');
 const fileData = fs.readFileSync(filePath, 'utf-8');
 var input = {
     language: 'Solidity',
     sources: {
-        'Demo.sol': {
+        'Lottery.sol': {
             content: fileData
         }
     },
@@ -20,8 +20,8 @@ var input = {
 };
 // console.log("compiled", solc.compile(JSON.stringify(input)));
 // console.log("here-->", JSON.parse(solc.compile(JSON.stringify(input))).contracts[
-//     'Demo.sol'
-// ].Demo);
+//     'Lottery.sol'
+// ].Lottery)
 module.exports = JSON.parse(solc.compile(JSON.stringify(input))).contracts[
-    'Demo.sol'
-].Demo;
+    'Lottery.sol'
+].Lottery;

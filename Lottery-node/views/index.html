@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockChain Demo</title>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <button type="submit" onclick="getAccounts()"
+            style="color: white; background-color: green; padding: 1%; font-weight: 600; border-radius: 10%;">All
+            Accounts</button>
+    </div>
+    <Script>
+        function getAccounts() {
+            debugger;
+            var requestOptions = {
+                method: 'GET',
+            };
+
+            fetch("http://localhost:3100/all-accounts", requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+    </Script>
+</body>
+
+</html>
